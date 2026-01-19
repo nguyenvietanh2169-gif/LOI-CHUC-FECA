@@ -10,61 +10,67 @@
             font-family: 'Charmonman', cursive; 
             display: flex; justify-content: center; align-items: center; 
             height: 100vh; margin: 0; 
-            background: linear-gradient(135deg, #fce5e8 0%, #ffdadc 100%); 
+            background: url('https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/IMG_5894.jpeg?raw=true') no-repeat center center fixed; 
+            background-size: cover; 
             overflow: hidden;
             position: relative; 
         }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.15); 
+            z-index: 1;
+        }
+
         .card { 
-            background: white; padding: 40px 25px; border-radius: 25px; 
-            box-shadow: 0 15px 35px rgba(255,99,71,0.25); 
+            background: rgba(255, 255, 255, 0.92); 
+            padding: 40px 25px; border-radius: 25px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3); 
             text-align: center; max-width: 85%; width: 330px;
-            border: 3px solid #ffd6d6; 
+            border: 2px solid #ffd700; 
             position: relative; z-index: 10;
         }
+
         .logo-container { 
-            width: 100px; height: 100px; margin: 0 auto 20px; 
-            background-color: #ff4500; /* Nền logo màu đỏ */
-            border-radius: 50%;
-            padding: 5px;
-            box-shadow: 0 5px 15px rgba(255,69,0,0.3);
+            width: 120px; height: 120px; margin: 0 auto 15px; 
             display: flex; justify-content: center; align-items: center;
         }
+
         .logo-container img { 
-            width: 90%; height: 90%; object-fit: contain; 
+            width: 100%; height: 100%; object-fit: contain; 
         }
+
         h1 { 
             font-family: 'Dancing Script', cursive;
             color: #ff4500; 
-            font-size: 1.5rem; margin-bottom: 15px; 
-            text-transform: uppercase; letter-spacing: 1px; 
+            font-size: 1.6rem; margin-bottom: 10px; 
+            text-transform: uppercase;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
+
         #quote { 
             font-family: 'Charmonman', cursive; 
-            font-size: 1.3rem; color: #8b0000; 
+            font-size: 1.25rem; color: #8b0000; 
             line-height: 1.6; font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.08);
-            animation: fadeInText 1s ease-out; 
             min-height: 80px; 
             display: flex; justify-content: center; align-items: center;
         }
-        @keyframes fadeInText {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
+
         canvas { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            pointer-events: none; z-index: 5; 
+            pointer-events: none; z-index: 15; 
         }
 
         .flower {
             position: absolute;
-            background-color: yellow;
+            background-color: #ffd700;
             border-radius: 50%;
             opacity: 0;
             animation: fall linear infinite;
             pointer-events: none;
-            box-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+            z-index: 2;
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
         }
 
@@ -78,10 +84,10 @@
     <canvas id="fireworksCanvas"></canvas>
     <div class="card">
         <div class="logo-container">
-            <img src="https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/logo%20feca%20xoa%20nen.png?raw=true" alt="Logo FECA">
+            <img src="https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/logo%20feca%20xoa%20nen%20final.png?raw=true" alt="Logo FECA">
         </div>
         <h1>Chúc Mừng Năm Mới!</h1>
-        <div id="quote">Đang mang lời chúc Tết đến bạn...</div>
+        <div id="quote">Đang tải lời chúc...</div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -99,34 +105,44 @@
             "Cảm ơn bạn đã chọn FECA để bắt đầu một năm mới ngọt ngào. Chúc bạn vạn sự tốt lành! ❤️",
             "Ly nước này thay lời chúc may mắn FECA gửi đến bạn. Một năm mới rạng rỡ nhé! 🌟",
             "FECA hy vọng mỗi ngụm trà sữa hôm nay sẽ mang lại cho bạn một niềm vui nhỏ cho cả năm! 🧋",
-            "Mừng Xuân Giáp Thìn, cả nhà sung túc, ấm no! 💖",
+            "Mừng Xuân Giáp Thân, cả nhà sung túc, ấm no! 💖",
             "Năm mới nhiều sức khoẻ, niềm vui và hạnh phúc đong đầy nhé! 🥳"
         ];
         
         document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
-        // HIỆU ỨNG PHÁO GIẤY DÀY ĐẶC
-        var count = 200;
-        var defaults = {
-          origin: { y: 0.7 }
-        };
+        // HIỆU ỨNG PHÁO GIẤY VÀNG BẮN LIÊN TỤC TRONG 2 GIÂY
+        const duration = 2 * 1000;
+        const animationEnd = Date.now() + duration;
+        const colors = ['#FFD700', '#FFA500', '#FF8C00', '#FFF700']; // Các tông màu vàng/vàng cam
 
-        function fire(particleRatio, opts) {
-          confetti(Object.assign({}, defaults, opts, {
-            particleCount: Math.floor(count * particleRatio)
-          }));
-        }
+        (function frame() {
+          const timeLeft = animationEnd - Date.now();
 
-        // Bắn pháo giấy liên tục theo đợt để tạo độ dày
-        var interval = setInterval(function() {
-          fire(0.25, { spread: 26, startVelocity: 55 });
-          fire(0.2, { spread: 60 });
-          fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
-          fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
-          fire(0.1, { spread: 120, startVelocity: 45 });
-        }, 1500); // Mỗi 1.5 giây bắn một đợt lớn
+          if (timeLeft <= 0) return;
 
-        // Hiệu ứng hoa mai rơi
+          const particleCount = 10 * (timeLeft / duration);
+          
+          // Bắn từ hai bên góc dưới màn hình lên giữa
+          confetti({
+            particleCount,
+            spread: 80,
+            origin: { y: 0.7, x: 0.2 },
+            colors: colors,
+            startVelocity: 45
+          });
+          confetti({
+            particleCount,
+            spread: 80,
+            origin: { y: 0.7, x: 0.8 },
+            colors: colors,
+            startVelocity: 45
+          });
+
+          requestAnimationFrame(frame);
+        }());
+
+        // Hiệu ứng hoa mai rơi (vẫn duy trì để tạo độ sinh động)
         const createFlower = () => {
             const flower = document.createElement('div');
             flower.classList.add('flower');
@@ -137,7 +153,7 @@
             document.body.appendChild(flower);
             flower.addEventListener('animationend', () => { flower.remove(); });
         };
-        setInterval(createFlower, 400);
+        setInterval(createFlower, 500);
     </script>
 </body>
 </html>
