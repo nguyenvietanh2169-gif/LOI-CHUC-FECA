@@ -2,40 +2,58 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lời chúc Tết từ FECA</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Charmonman:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Khóa toàn bộ cuộn và ép khung hình 100% */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Không cho cuộn */
+            position: fixed; /* Giữ cố định vị trí */
+        }
+
         body { 
             font-family: 'Charmonman', cursive; 
             display: flex; justify-content: center; align-items: center; 
-            height: 100vh; margin: 0; 
-            background: url('https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/IMG_5894.jpeg?raw=true') no-repeat center center fixed; 
+            /* Hình nền gốc từ bạn gửi */
+            background: url('https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/IMG_5894.jpeg?raw=true') no-repeat center center; 
             background-size: cover; 
-            overflow: hidden;
-            position: relative; 
+            transform: translateZ(0); /* Tăng tốc phần cứng */
         }
 
+        /* Lớp phủ mờ giúp card nổi bật hơn */
         body::before {
             content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.15); 
+            background: rgba(0, 0, 0, 0.05); 
             z-index: 1;
         }
 
         .card { 
-            background: rgba(255, 255, 255, 0.92); 
-            padding: 40px 25px; border-radius: 25px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3); 
-            text-align: center; max-width: 85%; width: 330px;
-            border: 2px solid #ffd700; 
-            position: relative; z-index: 10;
+            background: rgba(255, 255, 255, 0.9); 
+            padding: 25px 20px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+            text-align: center; 
+            width: 80%; /* Chiều rộng linh hoạt */
+            max-width: 320px;
+            position: relative; 
+            z-index: 10;
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            /* Đảm bảo card không quá cao trên màn hình nhỏ */
+            max-height: 80vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .logo-container { 
-            width: 120px; height: 120px; margin: 0 auto 15px; 
-            display: flex; justify-content: center; align-items: center;
+            width: 80px; height: 80px; margin: 0 auto 10px; 
         }
 
         .logo-container img { 
@@ -45,38 +63,20 @@
         h1 { 
             font-family: 'Dancing Script', cursive;
             color: #ff4500; 
-            font-size: 1.6rem; margin-bottom: 10px; 
+            font-size: 1.3rem; margin: 5px 0; 
             text-transform: uppercase;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         #quote { 
             font-family: 'Charmonman', cursive; 
-            font-size: 1.25rem; color: #8b0000; 
-            line-height: 1.6; font-weight: bold;
-            min-height: 80px; 
-            display: flex; justify-content: center; align-items: center;
+            font-size: 1.1rem; color: #8b0000; 
+            line-height: 1.4; font-weight: bold;
+            margin-top: 10px;
         }
 
         canvas { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             pointer-events: none; z-index: 15; 
-        }
-
-        .flower {
-            position: absolute;
-            background-color: #ffd700;
-            border-radius: 50%;
-            opacity: 0;
-            animation: fall linear infinite;
-            pointer-events: none;
-            z-index: 2;
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.8; }
-            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
         }
     </style>
 </head>
@@ -93,67 +93,37 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
         const quotes = [
-            "Chúc bạn năm mới vạn sự như ý, tỷ sự như mơ, triệu triệu bất ngờ, không chờ cũng đến! 🧧",
-            "Năm mới túi luôn đầy tiền, bụng luôn đầy trà sữa và tim luôn đầy tình! 🥤",
-            "Vũ trụ gửi tín hiệu: Năm 2026 này bạn sẽ giàu to, nhớ ghé FECA ăn mừng nhé! ✨",
-            "Chúc bạn năm mới bớt 'thả thính', tăng 'thả ga', công việc bao la, tiền ra nhỏ giọt! 💰",
-            "Năm mới chúc bạn: Đau đầu vì nhà giàu, mệt mỏi vì học giỏi, buồn phiền vì nhiều tiền! 😂",
-            "Chúc bạn một năm mới an khang, thịnh vượng và luôn giữ được ngọn lửa đam mê! 🔥",
-            "Mong rằng năm 2026 sẽ đối xử dịu dàng với bạn. Chúc mừng năm mới! 🌸",
-            "Mọi nỗ lực của bạn trong năm qua sẽ được đền đáp xứng đáng vào năm nay. Cố lên nhé! 💪",
-            "Chúc bạn và gia đình một mùa Xuân ấm áp, sum vầy và tràn đầy tiếng cười. 👨‍👩‍👧‍👦",
-            "Cảm ơn bạn đã chọn FECA để bắt đầu một năm mới ngọt ngào. Chúc bạn vạn sự tốt lành! ❤️",
-            "Ly nước này thay lời chúc may mắn FECA gửi đến bạn. Một năm mới rạng rỡ nhé! 🌟",
-            "FECA hy vọng mỗi ngụm trà sữa hôm nay sẽ mang lại cho bạn một niềm vui nhỏ cho cả năm! 🧋",
-            "Mừng Xuân Giáp Thân, cả nhà sung túc, ấm no! 💖",
-            "Năm mới nhiều sức khoẻ, niềm vui và hạnh phúc đong đầy nhé! 🥳"
+            "Chúc bạn năm mới vạn sự như ý, tỷ sự như mơ! 🧧",
+            "Năm mới túi luôn đầy tiền, tim luôn đầy tình! 🥤",
+            "Chúc mừng năm mới 2026 rực rỡ và thành công! ✨",
+            "Chúc bạn sức khỏe dồi dào, vạn sự tốt lành! 💪",
+            "Cảm ơn bạn đã luôn đồng hành cùng FECA! ❤️"
         ];
         
         document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
-        // HIỆU ỨNG PHÁO GIẤY VÀNG BẮN LIÊN TỤC TRONG 2 GIÂY
+        // HIỆU ỨNG PHÁO GIẤY VÀNG 2 GIÂY
         const duration = 2 * 1000;
         const animationEnd = Date.now() + duration;
-        const colors = ['#FFD700', '#FFA500', '#FF8C00', '#FFF700']; // Các tông màu vàng/vàng cam
+        const colors = ['#FFD700', '#FFA500', '#FFF700'];
 
         (function frame() {
-          const timeLeft = animationEnd - Date.now();
+            const timeLeft = animationEnd - Date.now();
+            if (timeLeft <= 0) return;
 
-          if (timeLeft <= 0) return;
+            const particleCount = 15 * (timeLeft / duration);
+            
+            confetti({
+                particleCount,
+                spread: 70,
+                origin: { y: 0.6, x: 0.5 },
+                colors: colors,
+                startVelocity: 35,
+                gravity: 1.2
+            });
 
-          const particleCount = 10 * (timeLeft / duration);
-          
-          // Bắn từ hai bên góc dưới màn hình lên giữa
-          confetti({
-            particleCount,
-            spread: 80,
-            origin: { y: 0.7, x: 0.2 },
-            colors: colors,
-            startVelocity: 45
-          });
-          confetti({
-            particleCount,
-            spread: 80,
-            origin: { y: 0.7, x: 0.8 },
-            colors: colors,
-            startVelocity: 45
-          });
-
-          requestAnimationFrame(frame);
+            requestAnimationFrame(frame);
         }());
-
-        // Hiệu ứng hoa mai rơi (vẫn duy trì để tạo độ sinh động)
-        const createFlower = () => {
-            const flower = document.createElement('div');
-            flower.classList.add('flower');
-            flower.style.left = Math.random() * 100 + 'vw';
-            flower.style.animationDuration = Math.random() * 5 + 5 + 's';
-            flower.style.width = Math.random() * 10 + 10 + 'px';
-            flower.style.height = flower.style.width;
-            document.body.appendChild(flower);
-            flower.addEventListener('animationend', () => { flower.remove(); });
-        };
-        setInterval(createFlower, 500);
     </script>
 </body>
 </html>
