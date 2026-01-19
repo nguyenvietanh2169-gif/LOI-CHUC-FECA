@@ -1,7 +1,149 @@
-<div class="card">
-    <div class="logo-container" style="margin-bottom: 15px;">
-        <img src="https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/logo%20feca%20xoa%20nen.png?raw=true" alt="Logo" style="width: 100px; height: 100px; object-fit: contain; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời chúc Tết từ FECA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Charmonman:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Charmonman', cursive; 
+            display: flex; justify-content: center; align-items: center; 
+            height: 100vh; margin: 0; 
+            background: linear-gradient(135deg, #fce5e8 0%, #ffdadc 100%); /* Nền đỏ hồng nhẹ nhàng */
+            overflow: hidden;
+            position: relative; 
+        }
+        .card { 
+            background: white; padding: 40px 25px; border-radius: 25px; 
+            box-shadow: 0 15px 35px rgba(255,99,71,0.25); 
+            text-align: center; max-width: 85%; width: 330px;
+            border: 3px solid #ffd6d6; 
+            position: relative; z-index: 10;
+        }
+        .logo-container { width: 100px; height: 100px; margin: 0 auto 20px; }
+        .logo-container img { 
+            width: 100%; height: 100%; object-fit: contain; 
+            border-radius: 50%; border: 3px solid #ff6347; 
+            box-shadow: 0 5px 15px rgba(255,99,71,0.2);
+        }
+        h1 { 
+            font-family: 'Dancing Script', cursive;
+            color: #ff4500; 
+            font-size: 1.5rem; margin-bottom: 15px; 
+            text-transform: uppercase; letter-spacing: 1px; 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        #quote { 
+            font-family: 'Charmonman', cursive; 
+            font-size: 1.3rem; color: #8b0000; 
+            line-height: 1.6; font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.08);
+            animation: fadeInText 1s ease-out; 
+            min-height: 80px; 
+            display: flex; justify-content: center; align-items: center;
+        }
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        canvas { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            pointer-events: none; z-index: 5; 
+        }
+
+        /* Hiệu ứng hoa mai rơi */
+        .flower {
+            position: absolute;
+            background-color: yellow;
+            border-radius: 50%;
+            opacity: 0;
+            animation: fall linear infinite;
+            pointer-events: none;
+            box-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+            /* Để tạo hình cánh hoa mai */
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.8; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="fireworksCanvas"></canvas>
+    <div class="card">
+        <div class="logo-container">
+            <img src="https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/logo%20feca%20xoa%20nen.png?raw=true" alt="Logo FECA">
+        </div>
+        <h1>Chúc Mừng Năm Mới!</h1>
+        <div id="quote">Đang mang lời chúc Tết đến bạn...</div>
     </div>
-    <h1 style="font-size: 1rem; color: #ff6b81; letter-spacing: 1px;">THÔNG ĐIỆP TỪ VŨ TRỤ</h1>
-    <div id="quote" style="font-size: 1.4rem; font-weight: bold; color: #333; min-height: 60px;">Đang lấy lời chúc...</div>
-</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        const quotes = [
+            "Chúc bạn năm mới vạn sự như ý, tỷ sự như mơ, triệu triệu bất ngờ, không chờ cũng đến! 🧧",
+            "Năm mới túi luôn đầy tiền, bụng luôn đầy trà sữa và tim luôn đầy tình! 🥤",
+            "Vũ trụ gửi tín hiệu: Năm 2026 này bạn sẽ giàu to, nhớ ghé FECA ăn mừng nhé! ✨",
+            "Chúc bạn năm mới bớt 'thả thính', tăng 'thả ga', công việc bao la, tiền ra nhỏ giọt! 💰",
+            "Năm mới chúc bạn: Đau đầu vì nhà giàu, mệt mỏi vì học giỏi, buồn phiền vì nhiều tiền! 😂",
+            "Chúc bạn một năm mới an khang, thịnh vượng và luôn giữ được ngọn lửa đam mê! 🔥",
+            "Mong rằng năm 2026 sẽ đối xử dịu dàng với bạn. Chúc mừng năm mới! 🌸",
+            "Mọi nỗ lực của bạn trong năm qua sẽ được đền đáp xứng đáng vào năm nay. Cố lên nhé! 💪",
+            "Chúc bạn và gia đình một mùa Xuân ấm áp, sum vầy và tràn đầy tiếng cười. 👨‍👩‍👧‍👦",
+            "Cảm ơn bạn đã chọn FECA để bắt đầu một năm mới ngọt ngào. Chúc bạn vạn sự tốt lành! ❤️",
+            "Ly nước này thay lời chúc may mắn FECA gửi đến bạn. Một năm mới rạng rỡ nhé! 🌟",
+            "FECA hy vọng mỗi ngụm trà sữa hôm nay sẽ mang lại cho bạn một niềm vui nhỏ cho cả năm! 🧋",
+            "Mừng Xuân Giáp Thìn, cả nhà sung túc, ấm no! 💖",
+            "Năm mới nhiều sức khoẻ, niềm vui và hạnh phúc đong đầy nhé! 🥳"
+        ];
+        
+        // Hiển thị lời chúc ngẫu nhiên
+        document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
+
+        // Hiệu ứng pháo hoa liên tục
+        var canvas = document.getElementById('fireworksCanvas');
+        var myConfetti = confetti.create(canvas, { resize: true, useWorker: true });
+
+        var fire = function(particleRatio, opts) {
+          myConfetti(Object.assign({}, { 
+              particleCount: Math.floor(canvas.width * canvas.height * particleRatio), 
+              spread: 120,
+              origin: { y: 0.6 },
+              colors: ['#ff4500', '#ffd700', '#ffffff'] // Màu đỏ, vàng, trắng
+          }, opts));
+        };
+
+        (function frameFireworks() {
+            fire(0.0005, {
+                scalar: 2,
+                decay: 0.9,
+                startVelocity: 15,
+                ticks: 30
+            });
+            requestAnimationFrame(frameFireworks);
+        }());
+
+        // Hiệu ứng hoa mai rơi
+        const createFlower = () => {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.style.left = Math.random() * 100 + 'vw'; // Vị trí ngẫu nhiên theo chiều ngang
+            flower.style.animationDuration = Math.random() * 5 + 5 + 's'; // Tốc độ rơi ngẫu nhiên
+            flower.style.width = Math.random() * 10 + 10 + 'px'; // Kích thước ngẫu nhiên
+            flower.style.height = flower.style.width;
+            document.body.appendChild(flower);
+
+            // Xóa cánh hoa sau khi rơi xuống để không làm đầy DOM
+            flower.addEventListener('animationend', () => {
+                flower.remove();
+            });
+        };
+
+        // Tạo cánh hoa liên tục
+        setInterval(createFlower, 500); // Tạo cánh hoa mới mỗi 0.5 giây
+    </script>
+</body>
+</html>
