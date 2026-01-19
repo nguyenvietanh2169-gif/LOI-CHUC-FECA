@@ -10,7 +10,6 @@
             margin: 0; padding: 0;
             width: 100%; height: 100%;
             overflow: hidden; position: fixed;
-            background-color: #8b0000;
         }
 
         body { 
@@ -20,64 +19,71 @@
             background-size: cover; 
         }
 
-        /* Vùng chứa nội dung nằm trong hình thoi đỏ */
-        .content-container {
-            text-align: center;
-            width: 75%; /* Độ rộng tối ưu để chữ không chạm mép hình thoi */
-            max-width: 300px;
-            z-index: 10;
+        /* Khung chứa cố định khớp với vùng hình thoi đỏ */
+        .diamond-area {
+            position: relative;
+            width: 80vw;
+            height: 80vw;
+            max-width: 320px;
+            max-height: 320px;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            /* Đổ bóng nhẹ để nội dung tách biệt khỏi nền hoa văn */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            align-items: center;
+            z-index: 10;
         }
 
+        /* Logo điều chỉnh kích thước thoải mái ở đây */
         .logo-vanzi {
-            width: 160px; /* ĐÃ TĂNG KÍCH THƯỚC LOGO GẤP ĐÔI */
+            width: 180px; /* Bạn có thể tăng lên 200px hoặc hơn vẫn không bị đẩy chữ */
             height: auto;
-            margin-bottom: 0px; /* Giảm khoảng cách để cân đối với tiêu đề */
+            position: absolute;
+            top: 15%; /* Cố định vị trí ở phần trên hình thoi */
             filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));
+        }
+
+        /* Khối nội dung chữ */
+        .text-group {
+            position: absolute;
+            top: 45%; /* Bắt đầu từ giữa hình thoi trở xuống */
+            width: 85%;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         h1 { 
             font-family: 'Dancing Script', cursive;
             color: #FFD700; 
-            font-size: 1.8rem; 
-            margin: 10px 0 5px 0;
-            white-space: nowrap;
+            font-size: 1.6rem; 
+            margin: 0;
         }
 
         #quote { 
-            font-size: 1.15rem; 
+            font-size: 1.1rem; 
             color: #FFFACD; 
-            line-height: 1.5; 
+            line-height: 1.4; 
             font-weight: bold;
-            margin-top: 5px;
-            min-height: 80px;
-            display: flex;
-            align-items: center;
+            margin: 5px 0;
         }
 
         .signature {
-            margin-top: 15px;
             font-family: 'Dancing Script', cursive;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #FFD700;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
 
-    <div class="content-container">
+    <div class="diamond-area">
         <img src="https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/Ba%CC%89n%20sao%20cu%CC%89a%20Ba%CC%89n%20sao%20cu%CC%89a%20logo%20vanzi%20ver%202%20(1).png?raw=true" alt="Logo Vanzi" class="logo-vanzi">
         
-        <h1>Chúc Mừng Năm Mới!</h1>
-        
-        <div id="quote">Đang tải lời chúc...</div>
-        
-        <div class="signature">Thân tặng từ: Việt Anh</div>
+        <div class="text-group">
+            <h1>Chúc Mừng Năm Mới!</h1>
+            <div id="quote">Đang tải lời chúc...</div>
+            <div class="signature">Thân tặng từ: Việt Anh</div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -92,7 +98,6 @@
         
         document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
-        // Hiệu ứng pháo giấy vàng bắn 2 bên trong 1 giây
         const duration = 1000;
         const animationEnd = Date.now() + duration;
         const colors = ['#FFD700', '#FFA500', '#FFF700'];
@@ -100,31 +105,13 @@
         (function frame() {
             const timeLeft = animationEnd - Date.now();
             if (timeLeft <= 0) return;
-
-            confetti({
-                particleCount: 4,
-                angle: 60, spread: 60,
-                origin: { x: 0, y: 0.8 },
-                colors: colors
-            });
-            confetti({
-                particleCount: 4,
-                angle: 120, spread: 60,
-                origin: { x: 1, y: 0.8 },
-                colors: colors
-            });
-
+            confetti({ particleCount: 3, angle: 60, spread: 60, origin: { x: 0, y: 0.8 }, colors: colors });
+            confetti({ particleCount: 3, angle: 120, spread: 60, origin: { x: 1, y: 0.8 }, colors: colors });
             requestAnimationFrame(frame);
         }());
 
-        // Chạm để bắn pháo
         document.addEventListener('click', () => {
-            confetti({
-                particleCount: 60,
-                spread: 70,
-                origin: { y: 0.6 },
-                colors: colors
-            });
+            confetti({ particleCount: 50, spread: 70, origin: { y: 0.6 }, colors: colors });
         });
     </script>
 </body>
