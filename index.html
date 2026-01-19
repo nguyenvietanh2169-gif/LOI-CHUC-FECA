@@ -35,20 +35,21 @@
             z-index: 10;
         }
 
-        /* Logo đã được đẩy lên thêm 5% (từ 2% xuống -3%) */
+        /* Logo hạ xuống 5% (từ -3% về lại 2%) */
         .logo-vanzi {
             width: 160px; 
             height: auto;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            top: -3%; 
+            top: 2%; 
             filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.5));
         }
 
+        /* Cụm chữ cũng được hạ xuống nhẹ để giữ khoảng cách cân đối (từ 36% xuống 40%) */
         .text-group {
             position: absolute;
-            top: 36%; 
+            top: 40%; 
             left: 50%;
             transform: translateX(-50%);
             width: 80%; 
