@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Chúc Mừng Năm Mới 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
+    <title>Gửi trao may mắn 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Montserrat:wght@200;300;500&display=swap" rel="stylesheet">
     
     <style>
         * { box-sizing: border-box; }
@@ -17,7 +17,7 @@
 
         body { 
             display: flex; justify-content: center; align-items: center; 
-            background-color: #4a0404;
+            background-color: #300101;
         }
 
         /* MÀN HÌNH 1 */
@@ -26,61 +26,62 @@
             width: 100%; height: 100%;
             display: flex; flex-direction: column;
             justify-content: center; align-items: center;
-            background: radial-gradient(circle, #8b0000 0%, #300101 100%);
-            transition: all 1s ease-in-out;
+            background: radial-gradient(circle, #600202 0%, #1a0000 100%);
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .input-box {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 50px 30px;
-            border-radius: 25px;
-            border: 0.5px solid rgba(255, 215, 0, 0.3);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            padding: 60px 40px;
+            border-radius: 30px;
+            border: 0.5px solid rgba(255, 215, 0, 0.2);
             text-align: center;
-            width: 85%; max-width: 350px;
+            width: 85%; max-width: 360px;
         }
 
         .input-box h2 {
-            font-weight: 300;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
             color: #FFD700;
             margin-top: 0;
-            font-size: 1.5rem;
-            letter-spacing: 3px;
+            font-size: 1.2rem;
+            letter-spacing: 5px;
             text-transform: uppercase;
         }
 
         input[type="text"] {
             width: 100%;
-            padding: 12px;
-            margin: 25px 0;
+            padding: 15px;
+            margin: 30px 0;
             background: transparent;
             border: none;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.5);
+            border-bottom: 0.5px solid rgba(255, 215, 0, 0.4);
             color: #fff;
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-align: center;
             outline: none;
             font-family: 'Quicksand', sans-serif;
+            letter-spacing: 1px;
         }
 
         .btn-start {
             background: transparent;
             color: #FFD700;
-            border: 1px solid #FFD700;
-            padding: 12px 35px;
-            border-radius: 2px;
-            font-size: 0.9rem;
+            border: 0.5px solid #FFD700;
+            padding: 12px 40px;
+            font-size: 0.8rem;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.4s;
+            letter-spacing: 3px;
+            transition: all 0.5s;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .btn-start:hover {
             background: #FFD700;
-            color: #4a0404;
+            color: #300101;
         }
 
         /* MÀN HÌNH 2 */
@@ -91,53 +92,57 @@
             display: flex; flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 40px 20px;
+            padding: 50px 25px;
             background: url('https://github.com/nguyenvietanh2169-gif/LOI-CHUC-VIET-ANH/blob/main/IMG_5937.jpeg?raw=true') no-repeat center center;
             background-size: cover;
         }
 
-        /* LOGO TO VÀ ĐỨNG YÊN */
         .logo-vanzi {
-            width: 220px; /* Tăng kích thước logo */
+            width: 230px; 
             height: auto;
-            margin-top: 10px;
-            filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5));
-            /* Đã bỏ animation float */
+            filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.6));
         }
 
         .text-group {
             width: 100%;
-            max-width: 380px;
+            max-width: 400px;
             text-align: center;
             margin-bottom: 30px;
             background: rgba(0, 0, 0, 0.4);
-            padding: 25px;
+            padding: 30px 20px;
             border-radius: 20px;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
+            border: 0.5px solid rgba(255, 215, 0, 0.1);
         }
 
         h1 { 
-            font-weight: 300;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
             color: #FFD700; 
-            font-size: 1.4rem; 
-            margin: 0 0 15px 0;
-            letter-spacing: 4px;
+            font-size: 1.1rem; 
+            margin: 0 0 20px 0;
+            letter-spacing: 6px;
         }
 
         #quote { 
             font-size: 1rem; 
-            color: #ffffff;
+            color: #f0f0f0;
             font-weight: 300;
             line-height: 1.8;
-            min-height: 70px;
+            min-height: 80px;
+            font-family: 'Quicksand', sans-serif;
         }
 
+        /* CHỮ KÝ MẢNH VÀ SANG TRỌNG */
         .signature {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.4rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
             color: #FFD700;
-            margin-top: 15px;
-            font-weight: 400;
+            margin-top: 20px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 4px; /* Giãn chữ tạo vẻ sang trọng */
+            opacity: 0.9;
         }
     </style>
 </head>
@@ -149,9 +154,9 @@
 
     <div id="input-screen">
         <div class="input-box">
-            <h2>Mừng Xuân Ất Tỵ</h2>
-            <input type="text" id="userName" placeholder="Tên của bạn..." maxlength="20">
-            <button class="btn-start" onclick="startApp()">Khám Phá</button>
+            <h2>NEW YEAR 2026</h2>
+            <input type="text" id="userName" placeholder="Your Name" maxlength="20">
+            <button class="btn-start" onclick="startApp()">Enter</button>
         </div>
     </div>
 
@@ -159,9 +164,9 @@
         <img src="https://github.com/nguyenvietanh2169-gif/LOI-CHUC-FECA/blob/main/Ba%CC%89n%20sao%20cu%CC%89a%20Ba%CC%89n%20sao%20cu%CC%89a%20logo%20vanzi%20ver%202%20(1).png?raw=true" alt="Logo Vanzi" class="logo-vanzi">
         
         <div class="text-group">
-            <h1>CHÚC MỪNG NĂM MỚI</h1>
+            <h1>HAPPY NEW YEAR</h1>
             <div id="quote"></div>
-            <div class="signature">Thân tặng từ: Việt Anh</div>
+            <div class="signature">From Viet Anh with Respect</div>
         </div>
     </div>
 
@@ -171,34 +176,35 @@
             const name = document.getElementById('userName').value.trim();
             if (name === "") return;
 
-            const audio = document.getElementById('tetAudio');
-            audio.play();
+            document.getElementById('tetAudio').play();
 
             document.getElementById('input-screen').style.opacity = '0';
+            document.getElementById('input-screen').style.transform = 'scale(1.05)';
+            
             setTimeout(() => {
                 document.getElementById('input-screen').style.display = 'none';
                 document.getElementById('main-content').style.opacity = '1';
                 document.getElementById('main-content').style.pointerEvents = 'auto';
                 showWish(name);
-                launchFirework();
-            }, 1000);
+                launchEliteFirework();
+            }, 1200);
         }
 
         function showWish(name) {
             const quotes = [
-                `Chúc ${name} vạn sự như ý, mã đáo thành công`,
-                `Năm mới 2026 rực rỡ và thành công sẽ đến với ${name}`,
-                `Chúc ${name} sức khỏe dồi dào, vạn sự hanh thông`,
-                `Hạnh phúc và bình an luôn đồng hành cùng ${name}`,
-                `Tân niên vạn phúc, phú quý cát tường gửi tới ${name}`
+                `Khai xuân phú quý, chúc ${name} vươn tầm cao mới, mã đáo thành công trên mọi hành trình.`,
+                `Năm mới 2026, mong ${name} luôn giữ vững bản lĩnh, gặt hái những vận may và thành tựu rực rỡ.`,
+                `Chúc ${name} một năm Ất Tỵ thịnh vượng, thân tâm an lạc và tràn đầy cảm hứng sáng tạo.`,
+                `Hy vọng 2026 sẽ là chương rực rỡ nhất, mở ra những cơ hội vàng và hạnh phúc viên mãn cho ${name}.`,
+                `Tân niên vạn phúc, chúc ${name} luôn toả sáng với khí chất riêng và chạm đến mọi đỉnh cao.`
             ];
             document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
         }
 
-        function launchFirework() {
-            const duration = 5 * 1000;
+        function launchEliteFirework() {
+            const duration = 6 * 1000;
             const animationEnd = Date.now() + duration;
-            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0, scalar: 0.6 }; // scalar nhỏ để pháo bông ánh kim
+            const defaults = { startVelocity: 25, spread: 360, ticks: 80, zIndex: 999, scalar: 0.5 };
 
             function randomInRange(min, max) {
                 return Math.random() * (max - min) + min;
@@ -208,20 +214,20 @@
                 const timeLeft = animationEnd - Date.now();
                 if (timeLeft <= 0) return clearInterval(interval);
 
-                const particleCount = 50 * (timeLeft / duration);
+                const particleCount = 40 * (timeLeft / duration);
                 
-                // Pháo ánh kim (vàng và bạc)
+                // Pháo ánh kim siêu mịn (Vàng sâm panh, Bạc trắng, Vàng đồng)
                 confetti(Object.assign({}, defaults, { 
                     particleCount, 
-                    origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-                    colors: ['#FFD700', '#FFFACD', '#C0C0C0'] 
+                    origin: { x: randomInRange(0.1, 0.4), y: Math.random() - 0.2 },
+                    colors: ['#F7E7CE', '#FFFFFF', '#FFD700'] 
                 }));
                 confetti(Object.assign({}, defaults, { 
                     particleCount, 
-                    origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-                    colors: ['#FFD700', '#FFFACD', '#C0C0C0'] 
+                    origin: { x: randomInRange(0.6, 0.9), y: Math.random() - 0.2 },
+                    colors: ['#F7E7CE', '#FFFFFF', '#FFD700'] 
                 }));
-            }, 250);
+            }, 300);
         }
     </script>
 </body>
