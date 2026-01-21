@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Gửi trao may mắn 2026</title>
+    <title>Khởi Đầu Rực Rỡ 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Montserrat:wght@200;300;500&display=swap" rel="stylesheet">
     
     <style>
@@ -13,136 +13,102 @@
             width: 100%; height: 100%;
             overflow: hidden; position: fixed;
             font-family: 'Quicksand', sans-serif;
+            background-color: #1a0000;
         }
 
-        body { 
-            display: flex; justify-content: center; align-items: center; 
-            background-color: #300101;
-        }
-
-        /* MÀN HÌNH 1 */
+        /* MÀN HÌNH NHẬP TÊN */
         #input-screen {
             position: absolute; z-index: 100;
             width: 100%; height: 100%;
             display: flex; flex-direction: column;
             justify-content: center; align-items: center;
             background: radial-gradient(circle, #600202 0%, #1a0000 100%);
-            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 1.2s ease-in-out;
         }
 
         .input-box {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            padding: 60px 40px;
-            border-radius: 30px;
+            padding: 50px 30px; border-radius: 30px;
             border: 0.5px solid rgba(255, 215, 0, 0.2);
-            text-align: center;
-            width: 85%; max-width: 360px;
+            text-align: center; width: 85%; max-width: 360px;
         }
 
-        .input-box h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 200;
-            color: #FFD700;
-            margin-top: 0;
-            font-size: 1.2rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 15px;
-            margin: 30px 0;
-            background: transparent;
-            border: none;
-            border-bottom: 0.5px solid rgba(255, 215, 0, 0.4);
-            color: #fff;
-            font-size: 1rem;
-            text-align: center;
-            outline: none;
-            font-family: 'Quicksand', sans-serif;
-            letter-spacing: 1px;
-        }
-
-        .btn-start {
-            background: transparent;
-            color: #FFD700;
-            border: 0.5px solid #FFD700;
-            padding: 12px 40px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            transition: all 0.5s;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .btn-start:hover {
-            background: #FFD700;
-            color: #300101;
-        }
-
-        /* MÀN HÌNH 2 */
+        /* MÀN HÌNH CHÍNH */
         #main-content {
-            opacity: 0; pointer-events: none;
+            opacity: 0; 
             transition: opacity 2s ease;
             width: 100%; height: 100%;
-            display: flex; flex-direction: column;
-            justify-content: space-between;
+            display: flex; 
+            flex-direction: column;
+            justify-content: space-between; 
             align-items: center;
-            padding: 50px 25px;
+            padding: 30px 20px 40px 20px;
             background: url('https://github.com/nguyenvietanh2169-gif/LOI-CHUC-VIET-ANH/blob/main/IMG_5937.jpeg?raw=true') no-repeat center center;
             background-size: cover;
         }
 
+        /* LOGO CỐ ĐỊNH PHÍA TRÊN */
         .logo-vanzi {
-            width: 230px; 
+            width: 200px;
             height: auto;
-            filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.6));
+            margin-top: 20px;
+            filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.8));
+            opacity: 0;
+            transition: opacity 1.5s ease 1s; /* Hiện ra sau 1 giây */
         }
 
+        /* KHỐI LỜI CHÚC TRƯỢT LÊN */
         .text-group {
             width: 100%;
             max-width: 400px;
             text-align: center;
-            margin-bottom: 30px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 30px 20px;
-            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.5); /* Nền mờ nhẹ */
+            padding: 25px 20px;
+            border-radius: 25px 25px 0 0; /* Bo góc trên */
             backdrop-filter: blur(10px);
-            border: 0.5px solid rgba(255, 215, 0, 0.1);
+            border-top: 0.5px solid rgba(255, 215, 0, 0.3);
+            
+            /* Hiệu ứng trượt */
+            transform: translateY(100%); /* Giấu bên dưới màn hình */
+            transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1) 2s; /* Trượt lên sau 2 giây */
         }
+
+        /* Trạng thái khi kích hoạt */
+        .is-visible .text-group { transform: translateY(0); }
+        .is-visible .logo-vanzi { opacity: 1; }
 
         h1 { 
             font-family: 'Montserrat', sans-serif;
-            font-weight: 200;
+            font-weight: 300;
             color: #FFD700; 
-            font-size: 1.1rem; 
-            margin: 0 0 20px 0;
-            letter-spacing: 6px;
+            font-size: 1rem; 
+            margin: 0 0 10px 0;
+            letter-spacing: 5px;
         }
 
         #quote { 
-            font-size: 1rem; 
-            color: #f0f0f0;
+            font-size: 0.95rem; 
+            color: #ffffff;
             font-weight: 300;
-            line-height: 1.8;
-            min-height: 80px;
-            font-family: 'Quicksand', sans-serif;
+            line-height: 1.7;
+            min-height: 50px;
         }
 
-        /* CHỮ KÝ MẢNH VÀ SANG TRỌNG */
         .signature {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #FFD700;
-            margin-top: 20px;
+            margin-top: 15px;
             font-weight: 300;
             text-transform: uppercase;
-            letter-spacing: 4px; /* Giãn chữ tạo vẻ sang trọng */
-            opacity: 0.9;
+            letter-spacing: 4px;
+        }
+
+        .btn-start {
+            background: transparent; color: #FFD700; border: 0.5px solid #FFD700;
+            padding: 12px 40px; font-size: 0.8rem; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 3px;
         }
     </style>
 </head>
@@ -154,9 +120,9 @@
 
     <div id="input-screen">
         <div class="input-box">
-            <h2>NEW YEAR 2026</h2>
-            <input type="text" id="userName" placeholder="Your Name" maxlength="20">
-            <button class="btn-start" onclick="startApp()">Enter</button>
+            <h2 style="font-family: 'Montserrat'; font-weight: 200; color: #FFD700; letter-spacing: 4px; margin-bottom: 30px;">MÃ ĐÁO THÀNH CÔNG</h2>
+            <input type="text" id="userName" placeholder="Your Name" maxlength="20" style="border-bottom: 0.5px solid #FFD700; color:#fff; background:transparent; border-top:none; border-left:none; border-right:none; margin-bottom:30px; outline:none; text-align:center; width:100%;">
+            <button class="btn-start" onclick="startApp()">Khám Phá</button>
         </div>
     </div>
 
@@ -177,57 +143,44 @@
             if (name === "") return;
 
             document.getElementById('tetAudio').play();
-
             document.getElementById('input-screen').style.opacity = '0';
-            document.getElementById('input-screen').style.transform = 'scale(1.05)';
             
             setTimeout(() => {
                 document.getElementById('input-screen').style.display = 'none';
-                document.getElementById('main-content').style.opacity = '1';
-                document.getElementById('main-content').style.pointerEvents = 'auto';
+                const mainContent = document.getElementById('main-content');
+                mainContent.style.opacity = '1';
+                // Kích hoạt hiệu ứng xuất hiện của Logo và Lời chúc
+                mainContent.classList.add('is-visible');
+                
                 showWish(name);
                 launchEliteFirework();
-            }, 1200);
+            }, 1000);
         }
 
         function showWish(name) {
             const quotes = [
                 `Khai xuân phú quý, chúc ${name} vươn tầm cao mới, mã đáo thành công trên mọi hành trình.`,
-                `Năm mới 2026, mong ${name} luôn giữ vững bản lĩnh, gặt hái những vận may và thành tựu rực rỡ.`,
-                `Chúc ${name} một năm Ất Tỵ thịnh vượng, thân tâm an lạc và tràn đầy cảm hứng sáng tạo.`,
-                `Hy vọng 2026 sẽ là chương rực rỡ nhất, mở ra những cơ hội vàng và hạnh phúc viên mãn cho ${name}.`,
-                `Tân niên vạn phúc, chúc ${name} luôn toả sáng với khí chất riêng và chạm đến mọi đỉnh cao.`
+                `Năm mới 2026, mong ${name} luôn giữ vững bản lĩnh, gặt hái những vận may rực rỡ.`,
+                `Chúc ${name} một năm thịnh vượng, thân tâm an lạc và tràn đầy cảm hứng sáng tạo.`,
+                `Hy vọng 2026 sẽ mở ra những cơ hội vàng và hạnh phúc viên mãn cho ${name}.`,
+                `Tân niên vạn phúc, chúc ${name} luôn toả sáng với khí chất riêng của chính mình.`
             ];
             document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
         }
 
         function launchEliteFirework() {
-            const duration = 6 * 1000;
+            const duration = 4 * 1000;
             const animationEnd = Date.now() + duration;
-            const defaults = { startVelocity: 25, spread: 360, ticks: 80, zIndex: 999, scalar: 0.5 };
-
-            function randomInRange(min, max) {
-                return Math.random() * (max - min) + min;
-            }
-
+            const defaults = { startVelocity: 25, spread: 360, ticks: 60, zIndex: 999, scalar: 0.5 };
             const interval = setInterval(function() {
                 const timeLeft = animationEnd - Date.now();
                 if (timeLeft <= 0) return clearInterval(interval);
-
-                const particleCount = 40 * (timeLeft / duration);
-                
-                // Pháo ánh kim siêu mịn (Vàng sâm panh, Bạc trắng, Vàng đồng)
                 confetti(Object.assign({}, defaults, { 
-                    particleCount, 
-                    origin: { x: randomInRange(0.1, 0.4), y: Math.random() - 0.2 },
+                    particleCount: 25, 
+                    origin: { x: Math.random(), y: Math.random() - 0.2 },
                     colors: ['#F7E7CE', '#FFFFFF', '#FFD700'] 
                 }));
-                confetti(Object.assign({}, defaults, { 
-                    particleCount, 
-                    origin: { x: randomInRange(0.6, 0.9), y: Math.random() - 0.2 },
-                    colors: ['#F7E7CE', '#FFFFFF', '#FFD700'] 
-                }));
-            }, 300);
+            }, 500);
         }
     </script>
 </body>
