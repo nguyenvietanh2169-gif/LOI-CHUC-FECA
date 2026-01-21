@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Khởi Đầu Rực Rỡ 2026</title>
+    <title>Elite New Year 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&family=Montserrat:wght@200;300;500&display=swap" rel="stylesheet">
     
     <style>
@@ -16,7 +16,7 @@
             background-color: #1a0000;
         }
 
-        /* MÀN HÌNH NHẬP TÊN */
+        /* MÀN HÌNH 1: TIẾNG ANH TỐI GIẢN */
         #input-screen {
             position: absolute; z-index: 100;
             width: 100%; height: 100%;
@@ -34,7 +34,50 @@
             text-align: center; width: 85%; max-width: 360px;
         }
 
-        /* MÀN HÌNH CHÍNH */
+        .input-box h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
+            color: #FFD700;
+            margin-top: 0;
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            margin: 30px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 0.5px solid rgba(255, 215, 0, 0.4);
+            color: #fff;
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+            font-family: 'Quicksand', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .btn-start {
+            background: transparent;
+            color: #FFD700;
+            border: 0.5px solid #FFD700;
+            padding: 12px 40px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: all 0.5s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-start:hover {
+            background: #FFD700;
+            color: #300101;
+        }
+
+        /* MÀN HÌNH 2: NỀN CON NGỰA */
         #main-content {
             opacity: 0; 
             transition: opacity 2s ease;
@@ -43,72 +86,67 @@
             flex-direction: column;
             justify-content: space-between; 
             align-items: center;
-            padding: 30px 20px 40px 20px;
+            padding: 40px 20px 60px 20px;
             background: url('https://github.com/nguyenvietanh2169-gif/LOI-CHUC-VIET-ANH/blob/main/IMG_5937.jpeg?raw=true') no-repeat center center;
             background-size: cover;
         }
 
-        /* LOGO CỐ ĐỊNH PHÍA TRÊN */
+        /* LOGO ĐỨNG YÊN */
         .logo-vanzi {
-            width: 200px;
+            width: 220px;
             height: auto;
-            margin-top: 20px;
-            filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.8));
+            filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.6));
             opacity: 0;
-            transition: opacity 1.5s ease 1s; /* Hiện ra sau 1 giây */
+            transition: opacity 1.5s ease 0.5s; /* Hiện dần sau 0.5s */
         }
 
-        /* KHỐI LỜI CHÚC TRƯỢT LÊN */
+        /* KHỐI LỜI CHÚC HIỆN DẦN (KHÔNG TRƯỢT) */
         .text-group {
             width: 100%;
             max-width: 400px;
             text-align: center;
-            background: rgba(0, 0, 0, 0.5); /* Nền mờ nhẹ */
-            padding: 25px 20px;
-            border-radius: 25px 25px 0 0; /* Bo góc trên */
-            backdrop-filter: blur(10px);
-            border-top: 0.5px solid rgba(255, 215, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
+            padding: 30px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            border: 0.5px solid rgba(255, 215, 0, 0.1);
             
-            /* Hiệu ứng trượt */
-            transform: translateY(100%); /* Giấu bên dưới màn hình */
-            transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1) 2s; /* Trượt lên sau 2 giây */
+            /* Hiệu ứng hiện dần */
+            opacity: 0;
+            transition: opacity 2s ease 1.5s; /* Hiện dần sau 1.5s */
         }
 
-        /* Trạng thái khi kích hoạt */
-        .is-visible .text-group { transform: translateY(0); }
-        .is-visible .logo-vanzi { opacity: 1; }
+        /* Trạng thái kích hoạt hiện hình */
+        .is-active .logo-vanzi,
+        .is-active .text-group {
+            opacity: 1;
+        }
 
         h1 { 
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
             color: #FFD700; 
-            font-size: 1rem; 
-            margin: 0 0 10px 0;
-            letter-spacing: 5px;
+            font-size: 1.1rem; 
+            margin: 0 0 15px 0;
+            letter-spacing: 6px;
         }
 
         #quote { 
-            font-size: 0.95rem; 
-            color: #ffffff;
+            font-size: 1rem; 
+            color: #f0f0f0;
             font-weight: 300;
-            line-height: 1.7;
-            min-height: 50px;
+            line-height: 1.8;
+            min-height: 70px;
         }
 
         .signature {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: #FFD700;
-            margin-top: 15px;
+            margin-top: 20px;
             font-weight: 300;
             text-transform: uppercase;
             letter-spacing: 4px;
-        }
-
-        .btn-start {
-            background: transparent; color: #FFD700; border: 0.5px solid #FFD700;
-            padding: 12px 40px; font-size: 0.8rem; cursor: pointer;
-            text-transform: uppercase; letter-spacing: 3px;
         }
     </style>
 </head>
@@ -120,9 +158,9 @@
 
     <div id="input-screen">
         <div class="input-box">
-            <h2 style="font-family: 'Montserrat'; font-weight: 200; color: #FFD700; letter-spacing: 4px; margin-bottom: 30px;">MÃ ĐÁO THÀNH CÔNG</h2>
-            <input type="text" id="userName" placeholder="Your Name" maxlength="20" style="border-bottom: 0.5px solid #FFD700; color:#fff; background:transparent; border-top:none; border-left:none; border-right:none; margin-bottom:30px; outline:none; text-align:center; width:100%;">
-            <button class="btn-start" onclick="startApp()">Khám Phá</button>
+            <h2>NEW YEAR 2026</h2>
+            <input type="text" id="userName" placeholder="Your Name" maxlength="20">
+            <button class="btn-start" onclick="startApp()">Enter</button>
         </div>
     </div>
 
@@ -149,8 +187,8 @@
                 document.getElementById('input-screen').style.display = 'none';
                 const mainContent = document.getElementById('main-content');
                 mainContent.style.opacity = '1';
-                // Kích hoạt hiệu ứng xuất hiện của Logo và Lời chúc
-                mainContent.classList.add('is-visible');
+                // Thêm class để kích hoạt hiệu ứng hiện dần cho Logo và Text
+                mainContent.classList.add('is-active');
                 
                 showWish(name);
                 launchEliteFirework();
@@ -163,13 +201,13 @@
                 `Năm mới 2026, mong ${name} luôn giữ vững bản lĩnh, gặt hái những vận may rực rỡ.`,
                 `Chúc ${name} một năm thịnh vượng, thân tâm an lạc và tràn đầy cảm hứng sáng tạo.`,
                 `Hy vọng 2026 sẽ mở ra những cơ hội vàng và hạnh phúc viên mãn cho ${name}.`,
-                `Tân niên vạn phúc, chúc ${name} luôn toả sáng với khí chất riêng của chính mình.`
+                `Tân niên vạn phúc, chúc ${name} luôn toả sáng với khí chất riêng và chạm đến mọi đỉnh cao.`
             ];
             document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
         }
 
         function launchEliteFirework() {
-            const duration = 4 * 1000;
+            const duration = 5 * 1000;
             const animationEnd = Date.now() + duration;
             const defaults = { startVelocity: 25, spread: 360, ticks: 60, zIndex: 999, scalar: 0.5 };
             const interval = setInterval(function() {
@@ -180,7 +218,7 @@
                     origin: { x: Math.random(), y: Math.random() - 0.2 },
                     colors: ['#F7E7CE', '#FFFFFF', '#FFD700'] 
                 }));
-            }, 500);
+            }, 450);
         }
     </script>
 </body>
